@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cargo build --release
+rust-objcopy -O binary ./target/thumbv7m-none-eabi/release/test-stm32f103 ./target/thumbv7m-none-eabi/release/output.bin
+st-flash write ./target/thumbv7m-none-eabi/release/output.bin 0x8000000
